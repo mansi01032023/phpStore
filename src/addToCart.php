@@ -11,7 +11,7 @@ if ($result->num_rows > 0) {
         $image = $row['image'];
     }
 }
-if (isset($_COOKIE['userid'])) {
+if (isset($_COOKIE['userid']) && isset($_COOKIE['loggedin'])) {
     $userid = $_COOKIE['userid'];
     $check = "SELECT * from `cart` where `user_id` = '$userid' AND `product_id` = '$product_id'";
     $checkResult = $conn->query($check);

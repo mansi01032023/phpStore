@@ -10,15 +10,15 @@ if ($result->num_rows > 0) {
         $image = $row['image'];
     }
 }
-if (isset($_COOKIE['userid'])) {
+if (isset($_COOKIE['userid'])  && isset($_COOKIE['loggedin'])) {
     $userid = $_COOKIE['userid'];
     $check = "SELECT * from `wish` where `user_id` = '$userid' AND `product_id` = '$product_id'";
     $checkResult = $conn->query($check);
     if ($checkResult->num_rows == 0) {
         $stmt = "INSERT INTO `wish` VALUES (null, '$userid', '$product_id', '$name', '$image')";
         $conn->query($stmt);
-        echo true;
     }
+    echo true;
 } else {
     echo false;
 }

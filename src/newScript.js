@@ -1,7 +1,8 @@
 $(document).ready(function () {
   displayProducts();
 });
-// displayProducts();
+
+// displayProducts()
 function showProducts() {
   $.ajax({
     url: "allProducts.php",
@@ -10,6 +11,8 @@ function showProducts() {
     window.location = "allProducts.php";
   });
 }
+
+// display users
 function showUsers() {
   $.ajax({
     url: "allUsers.php",
@@ -18,6 +21,8 @@ function showUsers() {
     window.location = "allUsers.php";
   });
 }
+
+// display orders
 function showOrders() {
   $.ajax({
     url: "allOrders.php",
@@ -26,6 +31,7 @@ function showOrders() {
     window.location = "allOrders.php";
   });
 }
+
 // crud on products
 $(document).on("click", ".edit", function () {
   let id = $(this).attr("id");
@@ -67,6 +73,7 @@ $(document).on("click", ".update", function () {
     $("#desc" + id).prop("disabled", true);
   });
 });
+
 // crud on users
 $(document).on("click", ".editUser", function () {
   let id = $(this).attr("id");
@@ -78,7 +85,6 @@ $(document).on("click", ".editUser", function () {
   $("#" + id).html("Update");
   $("#" + id).attr("class", "updateUser");
 });
-
 $(document).on("click", ".updateUser", function () {
   let id = $(this).attr("id");
   let name = $("#name" + id).val();
@@ -108,6 +114,7 @@ $(document).on("click", ".updateUser", function () {
     $("#status" + id).prop("disabled", true);
   });
 });
+
 // crud on orders
 $(document).on("click", ".editOrder", function () {
   let id = $(this).attr("id");
@@ -118,7 +125,6 @@ $(document).on("click", ".editOrder", function () {
   $("#" + id).html("Update");
   $("#" + id).attr("class", "updateOrder");
 });
-
 $(document).on("click", ".updateOrder", function () {
   let id = $(this).attr("id");
   let total = $("#total" + id).val();
@@ -145,6 +151,7 @@ $(document).on("click", ".updateOrder", function () {
     $("#address" + id).prop("disabled", true);
   });
 });
+
 // adding product by admin
 function addProduct() {
   let pname = $("#product_name").val();
@@ -174,6 +181,7 @@ function addProduct() {
     }
   });
 }
+
 // user registration on signup page
 $(document).on("click", "#register", function () {
   let name = $("#name").val();
@@ -201,6 +209,7 @@ $(document).on("click", "#register", function () {
     });
   }
 });
+
 // user login on login page
 $(document).on("click", "#signin", function () {
   let emailLogin = $("#emailLogin").val();
@@ -228,6 +237,7 @@ $(document).on("click", "#signin", function () {
     });
   }
 });
+
 // function to display all products on home page
 function displayProducts() {
   $.ajax({
@@ -239,6 +249,7 @@ function displayProducts() {
   });
 }
 
+// function to add to cart
 function addToCart(id) {
   id = id.substring(4);
   $.ajax({
@@ -253,6 +264,7 @@ function addToCart(id) {
   });
 }
 
+// function to display wishlist
 function displayWishlist() {
   $.ajax({
     url: "displayWishlist.php",
@@ -262,6 +274,7 @@ function displayWishlist() {
   });
 }
 
+// function to display cart
 function displayCart() {
   $.ajax({
     url: "displayCart.php",
@@ -271,6 +284,7 @@ function displayCart() {
   });
 }
 
+// function to add to wishlist
 function addToWishlist(id) {
   id = id.substring(4);
   $.ajax({
@@ -279,12 +293,15 @@ function addToWishlist(id) {
     datatype: "text",
     type: "POST",
   }).done(function (result) {
-    if (!result) {
+    if (result) {
+      window.location = "wishlist.php";
+    } else {
       window.location = "login.php";
     }
   });
 }
 
+// function to buy a product
 function buy(id) {
   id = id.substring(3);
   $.ajax({
@@ -301,6 +318,7 @@ function buy(id) {
   });
 }
 
+// function to checkout
 function checkout(id) {
   quantity = $("#inputQuantity").val();
   id = id.substring(5);
@@ -318,6 +336,7 @@ function checkout(id) {
   });
 }
 
+// function to delete an item from wishlist
 function deleteWishlist(id) {
   id = id.substring(6);
   $.ajax({
@@ -330,6 +349,7 @@ function deleteWishlist(id) {
   });
 }
 
+// function to delete items from cart
 function deleteCart(id) {
   id = id.substring(6);
   $.ajax({

@@ -22,21 +22,20 @@ include_once("config.php");
             </tr>
         </thead>
         <tbody id='topUsers'>";
-    $orders = "SELECT `user_id` from `orders` order by `total` desc limit 5";
-    $resOrders = $conn->query($orders);
-    if ($resOrders->num_rows > 0) {
-        while ($row = $resOrders->fetch_assoc()) {
-            $text = $row['user_id'];
-            $statement = "SELECT `user_id`, `username`, `email`, `password`, `address`, `status` from `Users` where  `user_id` = '$text'";
-            $result = $conn->query($statement);
-            if ($result->num_rows > 0) {
-                while ($rowu = $result->fetch_assoc()) {
-                    echo "<tr><td style='border: 1px solid gray; padding: 5px; text-align: center;'>" . $rowu["user_id"] . "</td><td style='border: 1px solid gray; padding: 5px; text-align: center;'>" . $rowu["username"] . "</td><td style='border: 1px solid gray; padding: 5px; text-align: center;'>" . $rowu["email"] . "</td><td style='border: 1px solid gray; padding: 5px; text-align: center;'>" . $rowu["address"] . "</td><td style='border: 1px solid gray; padding: 5px; text-align: center;'>" . $rowu["status"] . "</td></tr>";
+    $statement = "SELECT `user_id`,SUM(`total`) as `total`,COUNT(`total`)as `count` FROM `orders` GROUP BY `user_id` order by `total` DESC limit 5";
+    $result = $conn->query($statement);
+    if ($result->num_rows > 0) {
+        while ($rowu = $result->fetch_assoc()) {
+            $stmt = "SELECT * from `Users` where `user_id` = '$rowu[user_id]'";
+            $res = $conn->query($stmt);
+            if ($res->num_rows > 0) {
+                while ($row = $res->fetch_assoc()) {
+                    echo "<tr><td style='border: 1px solid gray; padding: 5px; text-align: center;'>" . $row["user_id"] . "</td><td style='border: 1px solid gray; padding: 5px; text-align: center;'>" . $row["username"] . "</td><td style='border: 1px solid gray; padding: 5px; text-align: center;'>" . $row["email"] . "</td><td style='border: 1px solid gray; padding: 5px; text-align: center;'>" . $row["address"] . "</td><td style='border: 1px solid gray; padding: 5px; text-align: center;'>" . $row["status"] . "</td></tr>";
                 }
             }
         }
-        echo "</tbody></table>";
     }
+    echo "</tbody></table>";
     ?>
     <br><br>
     <h3>Top 5 Products</h3>

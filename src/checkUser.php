@@ -16,13 +16,13 @@ if ($result->num_rows > 0) {
             $text = $row['user_id'];
         }
     }
-    if (!(isset($_COOKIE['email']) && isset($_COOKIE['password']) && isset($_COOKIE['userid']))) {
+    if (!(isset($_COOKIE['email']) && isset($_COOKIE['password']) && isset($_COOKIE['userid']) && isset($_COOKIE['loggedin']))) {
         setcookie("email", $email, time() + (86400 * 30), "/");
         setcookie("password", $password, time() + (86400 * 30), "/");
         setcookie("userid", $text, time() + (86400 * 30), "/");
+        setcookie("loggedin", "yes", time() + (86400 * 30), "/");
     }
     echo true;
 } else {
     echo false;
 }
-?>
