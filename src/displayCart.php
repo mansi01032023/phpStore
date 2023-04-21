@@ -27,6 +27,7 @@ if (isset($_COOKIE['userid'])) {
         <img src='" . $row['image'] . "' class='card-img-top' style='aspect-ratio: 1 / 1' />
         <div class='card-body d-flex flex-column'>
         <h5 class='card-title'>" . $row['name'] . "</h5>
+        <p class='card-text'>$" . $row['price'] . ".00</p>
         <div class='card-footer d-flex align-items-end pt-3 px-0 pb-0 mt-auto'>
         <a href='#!' class='btn btn-light py-2 icon-hover' id='wish" . $row['product_id'] . "' onclick='addToWishlist(this.id)'><i class='fas fa-heart fa-lg text-danger px-1'></i></a>
         <a href='#!' class='btn btn-info border  icon-hover' id='buy" . $row['product_id'] . "' onclick='buy(this.id)'>Buy Now</a>

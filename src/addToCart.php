@@ -16,7 +16,7 @@ if (isset($_COOKIE['userid']) && isset($_COOKIE['loggedin'])) {
     $check = "SELECT * from `cart` where `user_id` = '$userid' AND `product_id` = '$product_id'";
     $checkResult = $conn->query($check);
     if ($checkResult->num_rows == 0) {
-        $stmt = "INSERT INTO `cart` VALUES (null, '$userid', '$product_id', '$name', '$image')";
+        $stmt = "INSERT INTO `cart` VALUES (null, '$userid', '$product_id', '$name', '$image', '$price')";
         $conn->query($stmt);
     }
     echo true;
