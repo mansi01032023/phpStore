@@ -14,7 +14,7 @@ if ($result->num_rows > 0) {
     while ($row = $result->fetch_assoc()) {
         echo "<div class='col-lg-3 col-md-6 col-sm-6 d-flex'>
            <div class='card w-100 my-2 shadow-2-strong'>
-           <img src='" . $row['image'] . "' class='card-img-top' style='aspect-ratio: 1 / 1' />
+           <img src='" . $row['image'] . "' class='card-img-top' style='aspect-ratio: 1 / 1' id='buy" . $row['product_id'] . "' onclick='buy(this.id)'/>
            <div class='card-body d-flex flex-column'>
            <h5 class='card-title'>" . $row['name'] . "</h5>
            <p class='card-text'>$" . $row['price'] . ".00</p>

@@ -59,12 +59,8 @@
                                     <div class="row">
                                         <div class="col-1"></div>
                                         <!-- register button -->
-                                        <div class="col-2 d-flex justify-content-center mx-4 mb-3 mb-lg-4">
+                                        <div class="col-5 d-flex justify-content-center mx-4 mb-3 mb-lg-4">
                                             <input type="button" class="btn btn-primary btn-lg" value="Register" id="register" />
-                                        </div>
-                                        <!-- login button -->
-                                        <div class="col-2 d-flex justify-content-center mx-4 mb-3 mb-lg-4">
-                                            <input type="button" class="btn btn-primary btn-lg" value="Login" id="login" />
                                         </div>
                                     </div>
 
