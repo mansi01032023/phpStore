@@ -293,9 +293,7 @@ function addToWishlist(id) {
     datatype: "text",
     type: "POST",
   }).done(function (result) {
-    if (result) {
-      window.location = "wishlist.php";
-    } else {
+    if (!result) {
       window.location = "login.php";
     }
   });
