@@ -1,7 +1,7 @@
 <?php
 session_start();
 include_once("config.php");
-if (isset($_COOKIE['userid'])) {
+if (isset($_COOKIE['loggedin'])) {
     $pid = $_POST['id'];
     $statement = "SELECT * from `products` where `product_id` = '$pid'";
     $result = $conn->query($statement);

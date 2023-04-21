@@ -26,25 +26,25 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="me-0 py-1 px-2 nav-link d-flex align-items-center" href="<?php if (isset($_COOKIE['userid'])) echo "displayWishlist.php";
+                                <a class="me-0 py-1 px-2 nav-link d-flex align-items-center" href="<?php if (isset($_COOKIE['loggedin'])) echo "displayWishlist.php";
                                                                                                     else echo "login.php"; ?>"> <i class="fas fa-heart m-1 me-md-2" style="color: magenta;"></i>
                                     <p class="d-none d-md-block mb-0" style="color: magenta;">Wishlist</p>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="py-1 px-2 nav-link d-flex align-items-center" href="<?php if (isset($_COOKIE['userid'])) echo "displayCart.php";
+                                <a class="py-1 px-2 nav-link d-flex align-items-center" href="<?php if (isset($_COOKIE['loggedin'])) echo "displayCart.php";
                                                                                                 else echo "login.php"; ?>"> <i class="fas fa-shopping-cart m-1 me-md-2"></i>
                                     <p class="d-none d-md-block mb-0">Cart</p>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="me-0 py-1 px-2 nav-link d-flex align-items-center" href="<?php if (isset($_COOKIE['userid'])) echo "index.php";
+                                <a class="me-0 py-1 px-2 nav-link d-flex align-items-center" href="<?php if (isset($_COOKIE['loggedin'])) echo "index.php";
                                                                                                     else echo "signup.php"; ?>"> <i class="fas fa-user-alt m-1 me-md-2" style="color: lightblue;"></i>
                                     <p class="d-none d-md-block mb-0 text-info">Signup</p>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="me-0 py-1 px-2 nav-link d-flex align-items-center" href="<?php if (isset($_COOKIE['userid'])) echo "index.php";
+                                <a class="me-0 py-1 px-2 nav-link d-flex align-items-center" href="<?php if (isset($_COOKIE['loggedin'])) echo "index.php";
                                                                                                     else echo "login.php"; ?>"> <i class="fas fa-user-alt m-1 me-md-2" style="color: green;"></i>
                                     <p class="d-none d-md-block mb-0 text-success">Signin</p>
                                 </a>

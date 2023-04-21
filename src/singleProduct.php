@@ -33,7 +33,7 @@ session_start();
                     </div>
                     <p class="lead"><?php echo $_SESSION['singleProduct']['desc']; ?></p>
                     <div class="d-flex">
-                        <input class="form-control text-center me-3" id="inputQuantity" type="num" value="1" style="max-width: 3rem" />
+                        <input class="form-control text-center me-3" id="inputQuantity" type="num" value="1" style="max-width: 3rem" required/>
                         <button class="btn btn-outline-dark flex-shrink-0" type="button" id="<?php echo "cart" . $_SESSION['singleProduct']['id']; ?>" onclick="addToCart(this.id)">
 
                             Add to cart
